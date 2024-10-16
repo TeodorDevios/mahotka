@@ -20,7 +20,7 @@ async def name_subj(message: types.Message, state: FSMContext):
 @subj_router.message(RegisterSubjModel.name_sp, IsAdmin(1330646571), ChatType(['private']))
 async def save_name(message: types.Message, state: FSMContext):
     await state.update_data(name=message.text)
-    await bot.send_message(message.chat.id, 'Теперь расписание. Формат: день_период_предмет с преподавателем')
+    await bot.send_message(message.chat.id, 'Теперь расписание. Формат: день_период_предмет_мод')
     await state.set_state(RegisterSubjModel.text_sbj)
 
 

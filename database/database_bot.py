@@ -60,8 +60,8 @@ def get_users_id() -> list:
 def add_sub(un_id: int, subj_list: list):
     curs = conn.cursor()
     for i in range(len(subj_list)):
-        curs.execute('''INSERT INTO subjects(un_id, day_num, time_pr, name_sbj) VALUES (%s, %s, %s, %s)''',
-                     (un_id, subj_list[i][0], subj_list[i][1], subj_list[i][2]))
+        curs.execute('''INSERT INTO subjects(un_id, day_num, time_pr, name_subj, mode_sub) VALUES (%s, %s, %s, %s, %s)''',
+                     (un_id, subj_list[i][0], subj_list[i][1], subj_list[i][2], subj_list[i][3]))
     conn.commit()
 
 
