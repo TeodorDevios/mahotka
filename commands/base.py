@@ -1,5 +1,5 @@
 from config import bot, dp, start_text
-from aiogram import types, Dispatcher, Router
+from aiogram import types, Router
 from aiogram.filters.command import Command
 
 from filtres.base import IsNotRegister, IsRegister

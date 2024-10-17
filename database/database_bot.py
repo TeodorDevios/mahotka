@@ -80,9 +80,12 @@ def get_schedule(user_id: int, day_n: int):
     un_id = curs.fetchall()[0]
     curs.execute('''SELECT * FROM subjects WHERE un_id=%s AND day_num=%s''', (un_id, str(day_n)))
     r = curs.fetchall()
-    text = ''
+    text = '\n'
     for i in range(len(r)):
-        text += f'{peer[r[i][3]]}у - {r[i][4]}\n'
+        if r[i][5] == '1':
+            text += f'{peer[r[i][3]]} — <b>{r[i][4]}</b>\n'
+        elif r[i][5] == '2':
+            text += f'{peer[r[i][3]]} — <span class="tg-spoiler"><b>{r[i][4]}</b></span>\n'
     return [r, text]
 
 
